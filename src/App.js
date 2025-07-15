@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+// ./src/App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import './App.css';
+import './index.css';
+
+import Navbar from "./components/navbar";
+import Portfolio from "./components/Portfolio";
+import Quantumbio from "./components/Quantumbio";
+import Neurochainex from "./components/Neurochainex";
+import Crypthenix from "./components/crypthenix";
+import Neuralink from "./components/Neuralink";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/quantumbio" element={<Quantumbio />} />
+          <Route path="/neurochainex" element={<Neurochainex />} />
+          <Route path="/crypthenix" element={<Crypthenix />} />
+          <Route path="/neuralink" element={<Neuralink />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
